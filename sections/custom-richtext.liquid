@@ -1,0 +1,27 @@
+{{ 'custom-richtext.css' | asset_url | stylesheet_tag }}
+
+<div class="custom-richtext">
+  <div class="custom-richtext_inner">
+    {% if section.settings.richtext != blank %}
+      <div class="cr_heading rte">{{ section.settings.richtext }}</div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom richtext",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "richtext",
+      "label": "Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom richtext"
+    }
+  ]
+}
+{% endschema %}
